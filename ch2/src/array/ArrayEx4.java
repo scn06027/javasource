@@ -1,0 +1,34 @@
+package array;
+
+public class ArrayEx4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			char chArr[]= {'a','b','c','d','e'};
+			
+			for (int i = 0; i < chArr.length; i++) {
+				System.out.print(chArr[i]);
+			}
+			System.out.println(chArr); //char 배열인 경우엔 주소가 아니라 문자 자체가 출력됨(Override 돼서)
+			System.out.println();
+			
+			//////////////////////////////////////////////////////////////////////////////////////////
+			
+			for(char ch:chArr) { //chArr배열에서 차례로 하나씩 가져와서 ch라는 변수에 담아라
+				System.out.println(ch);/////////////////////////////////////////////////////////////
+			}
+			
+			///////////////////////////////////////////////////////////////////////////////////////////
+			String str[]= {"a","b","c","d","e"};
+			for(int i=0; i<str.length;i++) {
+				System.out.print(str[i]);
+			}
+			///////////////////////////////////////////////////////////////////////////////////////
+			for(String s:str) {
+				System.out.println(s);/////////////////////////////////////////////////////////
+			}
+			///////////////////////////////////////////////////////////////////////////////////////
+			System.out.println(str);
+			
+	}
+}
