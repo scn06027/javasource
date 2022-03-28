@@ -14,5 +14,9 @@ public class Account {
  
  public void deposit() {
 	 System.out.println("deposit");
+	 
+ }
+ public void print() {
+	 System.out.println("print");
  }
 }
