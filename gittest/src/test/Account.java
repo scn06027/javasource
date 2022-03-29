@@ -23,4 +23,7 @@ public class Account {
  public void withdraw() {
 	 System.out.println("Withdraw");
  }
+public void print2() {
+	 System.out.println("print");
+ }
 }
