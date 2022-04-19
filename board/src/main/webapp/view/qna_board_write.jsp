@@ -65,7 +65,7 @@ pageEncoding="UTF-8"%> <%@include file="../include/header.jsp"%>
         <div class="form-group row">
           <label for="file" class="col-sm-2 col-form-label">파일첨부</label>
           <div class="col-sm-10">
-            <input type="file" name="attach" id="file" accept=".jpg, .png, .gif"/>
+            <input type="file" name="attach" id="file"/>
             <small class="text-muted" id="file">(파일크기 : 2MB)</small>
           </div>
         </div>
@@ -86,5 +86,6 @@ pageEncoding="UTF-8"%> <%@include file="../include/header.jsp"%>
 <script src="/js/write.js"></script>
 <%--write form validate --%>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
 <script src="/js/write_validate.js"></script>
 <%@include file="../include/footer.jsp"%>

@@ -125,4 +125,56 @@ public class BoardDAO {
 			}
 			return flag;
 		}
+		public boolean delete(int bno,String password) {
+			boolean flag=false;
+			PreparedStatement pstmt=null;
+			String sql="delete from board where bno=? and password=?";
+			try {
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1, bno);
+				pstmt.setString(2, password);
+				if(pstmt.executeUpdate()>0) flag=true;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				close(pstmt);
+			}
+			return flag;
+		}
+		//게시물 수정
+		public boolean Update(BoardDTO dto) {
+			boolean flag=false;
+			PreparedStatement pstmt=null;
+			String sql="";
+			try {
+				if(dto.getAttach()==null) {
+					sql="update board set title=?,content=? where bno=? and password=?";
+					pstmt=con.prepareStatement(sql);
+					pstmt.setString(1, dto.getTitle());
+					pstmt.setString(2, dto.getContent());
+					pstmt.setInt(3, dto.getBno());
+					pstmt.setString(4, dto.getPassword());
+					
+					
+				}else {
+					sql="update board set title=?,content=?,attach=? where bno=? and password=?";
+					pstmt=con.prepareStatement(sql);
+					pstmt.setString(1, dto.getTitle());
+					pstmt.setString(2, dto.getContent());
+					pstmt.setString(3, dto.getAttach());
+					pstmt.setInt(4, dto.getBno());
+					pstmt.setString(5, dto.getPassword());
+				}
+				
+				int result=pstmt.executeUpdate();
+				if(result>0) flag=true;
+				
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				close(pstmt);
+			}
+			return flag;
+		}
 }

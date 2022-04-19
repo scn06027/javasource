@@ -21,4 +21,29 @@ drop table board;
 insert into board(bno,name,password,title,content,attach,re_ref,re_lev,re_seq)
 values(board_seq.nextval,'홍길동','1234','jsp/servlet 게시판','게시판을 작성해봅시다',null,board_seq.currval,0,0);
 
-select * from board;
+
+--댓글,검색, 페이지 나누기 작업 해야 됨 ...................
+--더미데이타
+insert into board(bno,name,password,title,content,re_ref,re_lev,re_seq)
+(select board_seq.nextval,name,password,title,content,board_seq.currval,re_lev,re_seq from board);
+select count(*) from board;
+--마지막 글번호 확인
+select max(bno) from board;
+
+select bno,title,re_ref,re_seq,re_lev from board where bno=941;
+
+-- re_ref : 원본글의 re_ref값과 동일하게 삽입해야된다
+-- re_lev : 원본글의 re_lev+1 삽입
+-- re_seq : 원본글의 re_seq+1 삽입
+insert into board(bno,name,password,title,content,attach,re_ref,re_lev,re_seq)
+values(board_seq.nextval,'댓글로','1234','re : 댓글 얍','댓글작성',null,941,1,1);
+--원본글과 댓글 을 그룹으로 가져올거다
+select bno,title,re_ref,re_seq,re_lev from board where re_ref=941;
+
+-- 댓글 작성할 때 : 최신순으로 추출할 수 있어야 한다. (re_seq 사용)
+-- 기존 댓글의 re_seq값을 업데이트 해주고 , 
+--update board set re_seq=re_seq+1 where re_ref =원본글의 re_ref and re_seq> 원본글의 re_seq
+-- 그 다음에 새로운 값을 삽입해준다
+
+insert into board(bno,name,password,title,content,attach,re_ref,re_lev,re_seq)
+values(board_seq.nextval,'댓글로22','1234','re : 댓글22 얍','댓글작성222',null,941,1,1);

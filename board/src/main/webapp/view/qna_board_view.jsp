@@ -51,5 +51,8 @@
 		</form>
 	</div>
 </section>
+<form action="" method="post" id="actionForm">
+<input type="hidden" name="bno" value="${dto.bno}" />
+</form>
 <script src="/js/view.js"></script>
 <%@include file="../include/footer.jsp"%>

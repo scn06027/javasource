@@ -16,14 +16,14 @@
  			password:{
  				required:true
  			},
- 			file:{
+ 			attach:{
  				extension:"png|jpg|gif",
- 				maxsizetotal:2048000
+ 				maxsizetotal:2048000,
  			},
  		},
  		messages:{
  			name:{
- 				required:"이름을 입력해주세요"	},
+ 				required:"이름 입력"	},
  			title:{
  				required:"제목을 입력해주세요."
  			},
@@ -33,7 +33,7 @@
  			password:{
  				required:"비밀번호를 입력해주세요"
  			},
- 			file:{
+ 			attach:{
  				extension:"이미지파일만 가능합니다.",
  				maxsizetotal:"파일 사이즈를 초과하였습니다."
  			},
@@ -41,13 +41,13 @@
  		errorElement:"span",
  		errorPlacement:function(error,element){
  			if(element.prop("type")=="file"){
- 			$(element).closet("form")
- 				.find("small[id'"+element.attr('id')+"']")
+ 			$(element).closest("form")
+ 				.find("small[id='"+element.attr('id')+"']")
  				.append(error);
  			}else{
- 			$(element).closet("form")
- 				.find("label[for'"+element.attr('id')+"']")
- 				.appen("<br>").append(error);
+ 			$(element).closest("form")
+ 				.find("label[for='"+element.attr('id')+"']")
+ 				.append("<br>").append(error);
  			}
  		}
  	})

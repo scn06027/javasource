@@ -5,4 +5,20 @@
  	$("#list").click(function(){
  		location.href="/qList.do"
  	})
+ 	let formObj=$("#actionForm");
+ 	
+ 	$("#delete").click(function(){	
+ 		//폼 action지정
+ 		formObj.attr("action","/view/qna_board_pwdCheck.jsp");
+ 		//submit
+ 		formObj.submit();
+ 	})
+ 	
+ 	$("#modify").click(function(){
+	
+	//폼 action지정
+ 		formObj.attr("action","/qModify.do");
+ 		//submit
+ 		formObj.submit();
+		})
  })

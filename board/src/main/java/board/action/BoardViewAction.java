@@ -10,7 +10,7 @@ public class BoardViewAction implements Action {
 	private String path;
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		//bno 가져오기
+		//bno 가져오기 (주소줄에 있는걸로도 읽을 수 있다. get 방식이 그렇게 가는거니까!)
 		int bno=Integer.parseInt(request.getParameter("bno"));
 		
 		//service작업
