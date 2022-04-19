@@ -24,7 +24,7 @@
 	
 	String path="";
 	if(dao.insert(insertDto)){
-	//페이지 이동=>전체 리스트 보옂귀
+	//페이지 이동=>전체 리스트 보여주기
 		path="/list.jsp";
 	//커밋
 	JdbcUtil.commit(con);

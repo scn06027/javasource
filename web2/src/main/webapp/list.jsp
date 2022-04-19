@@ -3,11 +3,9 @@
 <%@page import="web2.dao.JdbcUtil"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="web2.dao.MemberDAO"%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="./layout/header.jsp" %>
-
 <%
 	//커넥션 얻기
 	Connection con=JdbcUtil.getConnection();
